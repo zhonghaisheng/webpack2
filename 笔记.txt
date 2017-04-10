@@ -1,0 +1,73 @@
+cmd命令报Can't find module 'jquery'解决方案：
+
+cnpm install jquery --save-dev
+
+浏览器报main.bundle.js:9 Uncaught ReferenceError: $ is not defined错误：
+
+ plugins:[
+	    new webpack.ProvidePlugin({
+			$:"jquery",
+			jQuery:"jquery",
+			"window.jQuery":"jquery"
+	    })
+	    ...
+]
+
+解决css中背景图片引用路径出错：
+
+ExtractTextPlugin有个 publicPath可以设置...
+
+webpack打包时html-webpack-plugin不自动的引用CommonsChunkPlugin公共文件:
+
+原因是因为你在html-webpack-plugin的参数里指定了chunks参数却又没有把CommonChunk包含在内。
+
+把你的CommonChunk加进chunks里就好了，比如chunks:["library", "aboutApp","library.js"]
+
+使用教程：
+
+第一步：安装所有依赖：
+
+cnpm install
+
+第二步：浏览器运行：
+
+cnpm run dev
+
+备注：浏览器输入：http://localhost:8099(如果html文件名是index，如果不是，请输入http://localhost:8099/[html_name].html)
+
+第三步：开发完打包：
+
+cnpm run build
+
+
+资料：http://blog.csdn.net/github_26672553/article/details/52280655
+
+webpack+vue+vue-router
+
+vue模板定义：
+<template id="Bar">
+	<div>This is Bar</div>
+</template>
+
+template里面必须有div包裹
+
+否则报错： Component template requires a root element, rather than just text.
+
+webpack压缩代码写法：
+
+1.webpack -p
+
+2.
+new webpack.optimize.UglifyJsPlugin({
+	compress: {
+		warnings: false
+	}
+})
+
+备注：开发环境不建议使用第二种方法开启压缩，建议使用第一种方法用于打包（生产环境用）
+
+
+vuejs post json数据
+http://www.cnblogs.com/jasonwang2y60/p/6498802.html
+
+打包说明：项目中凡是涉及js,css,images修改的，必须打包后才能提交到线上

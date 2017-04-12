@@ -2,9 +2,9 @@ var webpack = require("webpack"),
     path = require('path'),
     jquery = require('jquery'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    _dirname = path.resolve(__dirname, './test'), //这里指定要打包的项目目录//F:/webpack/webpack1/test(测试用)
+    _dirname = path.resolve(__dirname, './project'),
     merge = require('webpack-merge'),
-    bundleWebpack = require(path.resolve(__dirname,'./test/webpack.bundle'));
+    bundleWebpack = require(path.resolve(__dirname,'./project/webpack.bundle'));
 module.exports = merge(bundleWebpack, {
     output: {
         path: path.resolve(_dirname, './dist/'),

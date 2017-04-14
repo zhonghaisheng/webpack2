@@ -46,21 +46,24 @@ module.exports = {
             filename: 'index.html',
             chunks: ['index', 'common'], // 这个模板对应上面那个节点（如果用了CommonsChunkPlugin，记得将公用js引进来）
             hash: true,
-            minify: false
+            minify: false,
+            favicon:path.resolve(__dirname, './src/images/favico.ico')
         }),
         //支持多个html模板文件访问
         new HtmlWebpackPlugin({
             template: 'html-withimg-loader!' + path.resolve(__dirname, './list.html'),
             filename: 'list.html',
             chunks: ['list', 'common'], // 这个模板对应上面那个节点（如果用了CommonsChunkPlugin，记得将公用js引进来）,
-            minify: false
+            minify: false,
+            favicon:path.resolve(__dirname, './src/images/favico.ico')
         }),
         //支持多个html模板文件访问
         new HtmlWebpackPlugin({
             template: 'html-withimg-loader!' + path.resolve(__dirname, './test.html'),
             filename: 'test.html',
             chunks: ['test'], // 这个模板对应上面那个节点（如果用了CommonsChunkPlugin，记得将公用js引进来，没有被选中抽取公用部分，可以不写）
-            minify: false
+            minify: false,
+            favicon:path.resolve(__dirname, './src/images/favico.ico')
         }),
         // 提供公共代码
         new CommonsChunkPlugin({

@@ -10,7 +10,7 @@ module.exports = {
         test: path.resolve(__dirname, './src/js/test.js')
     },
     output: {
-        // publicPath: "http://localhost:8099/Public/"//用于生产环境配置资源实际路径
+        // publicPath: "Public/"//用于生产环境配置资源实际路径
     },
     module:{
     	loaders:[

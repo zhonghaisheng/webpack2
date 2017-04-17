@@ -9,6 +9,9 @@ module.exports = {
         list: path.resolve(__dirname, './src/js/list.js'),
         test: path.resolve(__dirname, './src/js/test.js')
     },
+    output: {
+        // publicPath: "http://localhost://Public/"//用于生产环境配置资源实际路径
+    },
     module:{
     	loaders:[
             {

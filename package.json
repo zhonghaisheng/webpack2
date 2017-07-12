@@ -42,7 +42,7 @@
     "vue-resource": "^1.2.1",
     "vue-style-loader": "^2.0.5",
     "vue-template-compiler": "^2.2.6",
-    "webpack": "^2.2.1",
+    "webpack": "^3.0.0",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.2",
     "webpack-hot-middleware": "^2.18.0",

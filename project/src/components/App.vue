@@ -1,8 +1,22 @@
 <template id="App">
 	<div id="wrapper">
 		<div class="part part1" v-cloak>
-	        <video width="1920px" height="1080px" loop="loop" src="https://hzhy.res.netease.com/pc/gw/20160225115643/data/bg.mp4" autoplay="autoplay">
-	            </video>
+	        <!-- <video width="1920px" height="1080px" loop="loop" src="https://hzhy.res.netease.com/pc/gw/20160225115643/data/bg.mp4" autoplay="autoplay">
+	            </video> -->
+	        <div class="row show-grid">
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	            <div class="col-md-1">.col-md-1</div>
+	        </div>
 	    </div>
 	    <div class="part part2">
 	        <img src="../images/machine.png">
@@ -40,6 +54,7 @@
 	import Vue from 'vue'
 	import xFooter from '../components/Footer.vue'
 	import qs from 'qs'//提交form data数据插件
+	import 'bootstrap/dist/css/bootstrap.css'
 
 	/*使用VueResource插件*/
 	// Vue.use(VueResource);

@@ -2,12 +2,11 @@ var webpack = require("webpack"),
     path = require('path'),
     jquery = require('jquery'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    _dirname = path.resolve(__dirname, './project'),
     merge = require('webpack-merge'),
     bundleWebpack = require(path.resolve(__dirname,'./project/webpack.bundle'));
 module.exports = merge(bundleWebpack, {
     output: {
-        path: path.resolve(_dirname, './dist/'),
+        path: path.resolve(__dirname, './dist/'),
         filename: 'js/[name].bundle.js'
     },
     module: {
@@ -18,7 +17,19 @@ module.exports = merge(bundleWebpack, {
             { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader?sourceMap' },
 
             //图片文件使用 url-loader 来处理，小于1kb的直接转为base64
-            { test: /\.(jpe?g|png|gif|svg)$/, loader: 'url-loader', query: { limit: 1024, name: 'images/[name].[ext]?[hash:7]' } }
+            { test: /\.(jpe?g|png|gif|svg)$/, loader: 'url-loader', query: { limit: 1024, name: 'images/[name].[ext]?[hash:7]' } },
+            {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+              loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+            }, {
+              test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+              loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
+            }, {
+              test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+              loader: 'file-loader'
+            }, {
+              test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+              loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+            }
         ]
     },
     //实时更新配置

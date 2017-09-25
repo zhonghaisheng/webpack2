@@ -1,3 +1,4 @@
+//加载配置文件
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var baseWebpackConfig = require('../webpack.config');

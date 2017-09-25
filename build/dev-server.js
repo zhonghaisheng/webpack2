@@ -1,9 +1,10 @@
+//启动express服务器入口文件
 var webpackConfig = require('./webpack.dev.conf.js');
 var webpack = require('webpack');
 var express = require('express');
 var compiler = webpack(webpackConfig);
 
-var app = express();
+var app = express();//express充当临时服务器，用于生成文件以及访问
 var opn = require('opn');
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -22,8 +23,8 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
+//使用热重载插件，进行热更新，生成文件（devMiddleware+hotMiddleware）
 app.use(devMiddleware);
-
 app.use(hotMiddleware);
 
 module.exports = app.listen(webpackConfig.devServer.port, function (err) {
@@ -36,13 +37,13 @@ module.exports = app.listen(webpackConfig.devServer.port, function (err) {
   opn(uri);
 })
 
-// 本地json-server服务器搭建代码
+// 本地json-server服务器搭建代码（前端开发环境用，实际部署到服务器下面则直接请求后台数据接口，此处可删）
 // 引入数据库文件
 var appData = require('../project/static/test.json')
 // 引入数据库
 var apiRoutes = express.Router()
 // 使用api的方法来创建连接时候的请求
-apiRoutes.post('/evaluate', function (req, res) {
+apiRoutes.post('/test', function (req, res) {
   res.json(appData);
 })
 // 调用api

@@ -13,23 +13,15 @@ module.exports = merge(bundleWebpack, {
         // avoid webpack trying to shim process
         noParse: /es6-promise\.js$/,
         loaders: [
-            //.scss 文件使用 style-loader、css-loader 和 sass-loader 来编译处理
+            //.scss 文件使用 style-loader、css-loader 和 sass-loader 来编译处理（直接引入scss）
+            // { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader?fsourceMap' },
+
+            //图片文件使用 url-loader 来处理，小于1kb的直接转为base64
             { test: /\.(jpe?g|png|gif|svg)$/, loader: 'url-loader', query: { limit: 1024, name: 'images/[name].[ext]?[hash:7]' } },
+            //用于处理文件（此处用于处理字体图标素材）
             {test: /\.(woff|woff2|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
               loader: 'file-loader?name=fonts/[name].[ext]?[hash:7]'
             }
-            // {test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-            //   loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-            // }, {
-            //   test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-            //   loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
-            // }, {
-            //   test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-            //   loader: 'file-loader'
-            // }, {
-            //   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-            //   loader: "url-loader?limit=10000&mimetype=image/svg+xml"
-            // }
         ]
     },
     //实时更新配置

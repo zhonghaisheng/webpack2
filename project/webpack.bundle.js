@@ -18,14 +18,19 @@ module.exports = {
                 test: /\.js$/,
                 // excluding some local linked packages.
                 // for normal use cases only node_modules is needed.
-                exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
-                loader: 'babel-loader'
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                //有引入node_modules里面的js，不能忽略
+                include: [path.resolve(__dirname, 'src/js')],
+                exclude: /node_modules/
             }
             //.css 文件使用 style-loader 和 css-loader 来处理
             // { test: /\.css$/, loader: 'style-loader!css-loader' },
     		,{
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
+                include: [path.resolve(__dirname, 'src/components')],
+                exclude: /node_modules/
             }
             ,{
                 test: /\.css$/,
@@ -38,7 +43,10 @@ module.exports = {
                         }
                     },
                     publicPath: "../" //这里配置下可以处理css中背景图片路径出错问题
-                })
+                }),
+                //有引入node_modules里面的css，不能忽略
+                // include: [path.resolve(__dirname, './src/css')],
+                // exclude: /node_modules/
             }
     	]
     },

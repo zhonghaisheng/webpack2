@@ -1,0 +1,49 @@
+/*字体图标来自http://www.iconfont.cn*/
+@font-face {
+  font-family: 'iconfont';  /* project id 336092 */
+  src: url('http://at.alicdn.com/t/font_z1luev044nmw8kt9.eot');
+  src: url('http://at.alicdn.com/t/font_z1luev044nmw8kt9.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_z1luev044nmw8kt9.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_z1luev044nmw8kt9.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_z1luev044nmw8kt9.svg#iconfont') format('svg');
+}
+
+.icon {
+  color:#333;
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: font-size 0.25s ease-out 0s;
+  -moz-transition: font-size 0.25s ease-out 0s;
+  transition: font-size 0.25s ease-out 0s;
+}
+
+.icon-warn:before { content: "\e602"; }
+
+.icon-error:before { content: "\e65f"; }
+
+.icon-success:before { content: "\e631"; }
+
+.icon-close:before { content: "\e64f"; }
+
+.icon-rightarrow:before { content: "\e65e"; }
+
+.icon-xialajiantou:before { content: "\e610"; }
+
+.icon-zixun:before { content: "\e606"; }
+
+.icon-radio-checked:before { content: "\e605"; }
+
+.icon-select:before { content: "\e611"; }
+
+.icon-checkbox-checked:before { content: "\e659"; }
+
+.icon-radio:before { content: "\e646"; }
+
+.icon-checkbox:before { content: "\e658"; }
+
+.icon-focus:before { content: "\e61f"; }
+
+.icon-sure:before { content: "\e6b4"; }

@@ -10,7 +10,8 @@ module.exports = {
         test: path.resolve(__dirname, './src/js/test.js')
     },
     output: {
-        // publicPath: "Public/"//用于生产环境配置资源实际路径
+        path: path.resolve(__dirname, '../dist/'),
+        filename: 'js/[name].bundle.js'
     },
     module:{
     	loaders:[
@@ -55,7 +56,7 @@ module.exports = {
             //webpack 处理html中img的src引入的图片
             template: 'html-withimg-loader!' + path.resolve(__dirname, './index.html'),
             filename: 'index.html',
-            chunks: ['index', 'common'], // 这个模板对应上面那个节点（如果用了CommonsChunkPlugin，记得将公用js引进来）
+            chunks: ['index'], // 这个模板对应上面那个节点（如果用了CommonsChunkPlugin，记得将公用js引进来）
             hash: true,
             minify: false,
             favicon:path.resolve(__dirname, './src/images/favico.ico')
@@ -64,7 +65,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'html-withimg-loader!' + path.resolve(__dirname, './list.html'),
             filename: 'list.html',
-            chunks: ['list', 'common'], // 这个模板对应上面那个节点（如果用了CommonsChunkPlugin，记得将公用js引进来）,
+            chunks: ['list'], // 这个模板对应上面那个节点（如果用了CommonsChunkPlugin，记得将公用js引进来）,
             minify: false,
             favicon:path.resolve(__dirname, './src/images/favico.ico')
         }),
@@ -77,11 +78,11 @@ module.exports = {
             favicon:path.resolve(__dirname, './src/images/favico.ico')
         }),
         // 提供公共代码
-        new CommonsChunkPlugin({
-            name: "common",
-            filename: "js/common.bundle.js", //忽略则以name为输出文件的名字，否则以此为输出文件名字
-            chunks: ['index', 'list'] //有选择从模块中提取公用部分
-        }),
+        // new CommonsChunkPlugin({
+        //     name: "common",
+        //     filename: "js/common.bundle.js", //忽略则以name为输出文件的名字，否则以此为输出文件名字
+        //     chunks: ['index', 'list'] //有选择从模块中提取公用部分
+        // }),
         //抽取css代码
         new ExtractTextPlugin({
             filename: "css/[name].css?[hash]-[chunkhash]-[contenthash]-[name]",

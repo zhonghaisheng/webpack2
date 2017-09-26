@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p",
+    "build": "webpack -p --progress --profile --progress",
+    "vendor":"webpack -p --color --profile --progress --config webpack.config.dll.js",
     "dev": "node build/dev-server.js",
     "dev2": "webpack-dev-server --devtool eval --progress --colors --content-base build --hot --inline"
   },

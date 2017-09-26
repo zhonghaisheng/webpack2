@@ -37,8 +37,7 @@
 	            <li class="nav04">4</li>
 	            <li class="nav05">5</li>
 	        </ul>
-	    </div>
-		<div class="testFooter"></div>
+	    </div></div>
 	</div>
 </template>
 <script type="text/javascript">
@@ -92,7 +91,6 @@
 		mounted:function(){
 		  	// /*单屏滚动*/
 			let scroll = new Scroll();
-			document.getElementsByClassName('testFooter')[0].innerHTML = document.getElementById('footer').innerHTML;
 		},
 		methods:{
 			sayHello(msg) {

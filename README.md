@@ -1,13 +1,13 @@
 webpack打包vuejs项目
 
-第一步，安装依赖插件
-
+安装依赖插件
 npm install
 
-第二步，浏览器运行
+打包公共模块（必须先打包公共模块）
+npm run vendor
 
+浏览器运行
 npm run dev
 
-第三步，打包
-
+打包
 npm run build

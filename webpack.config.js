@@ -37,10 +37,10 @@ module.exports = merge(bundleWebpack, {
         //不需要打包html将此处注释便可
         new webpack.HotModuleReplacementPlugin(),
         //打包时开启，可加快打包速度，开发时要关闭
-        // new webpack.DllReferencePlugin({
-        //     context: __dirname,
-        //     manifest: require('./vendor/vendor-manifest.json')
-        // }),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./vendor/vendor-manifest.json')
+        }),
         //webpack定义全局变量
         new webpack.ProvidePlugin({
             $: "jquery",
